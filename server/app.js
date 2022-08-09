@@ -1,7 +1,17 @@
 require("dotenv").config()
 const express = require("express")
 const app = express()
+const cors = require("cors")
 const connectDB = require("./db/connect")
+const routes = require("./routes")
+
+//Global Middlewares
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+//routes
+app.use("./api/v1", routes)
 
 const PORT = process.env.PORT || 3000
 
