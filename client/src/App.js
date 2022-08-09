@@ -2,12 +2,18 @@ import React from "react"
 import { Login } from "./components/login"
 import { Register } from "./components/register"
 import { SendEmail } from "./components/sendEmail"
+import { PrivateRoutes } from "./components/PrivateRoutes"
 import { Button, Box } from "@mui/material"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
 
 function App() {
   React.useEffect(() => {
     console.log("hey")
+    window.localStorage.setItem("token", "1234")
+    setTimeout(() => {
+      window.localStorage.removeItem("token")
+      console.log("token removed")
+    }, 5000)
   }, [])
   return (
     <div className="App">
@@ -34,7 +40,9 @@ function App() {
           />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/send-email" element={<SendEmail />} />
+          <Route element={<PrivateRoutes />}>
+            <Route path="/send-email" element={<SendEmail />} />
+          </Route>
         </Routes>
       </Router>
     </div>

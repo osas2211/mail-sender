@@ -14,7 +14,7 @@ export const Register = () => {
       <Container align="center" sx={{ marginY: 5 }}>
         <Typography variant="h5">Register</Typography>
         <Box width={"80%"}>
-          <form action="/send-email" method="post">
+          <form action="/send-email" method="POST">
             <FormGroup sx={{ marginY: 2 }}>
               <TextField
                 focused
