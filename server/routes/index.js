@@ -1,16 +1,11 @@
 const express = require("express")
+const { register, sendMail, login } = require("../controllers")
 const router = express.Router()
 
-router.get("/send-mail", (req, res) => {
-  res.status("200").json({ success: true })
-})
+router.post("/register", register)
 
-router.post("/register", (req, res) => {
-  res.status("200").json({ success: true })
-})
+router.post("/login", login)
 
-router.post("/login", (req, res) => {
-  res.status("200").json({ success: true })
-})
+router.get("/send-mail", sendMail)
 
 module.exports = router
