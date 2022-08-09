@@ -18,7 +18,7 @@ const register = async (req, res) => {
         { id: mailer._id, userName: mailer.userName },
         process.env.JWT_SECRET,
         {
-          expiresIn: "2h",
+          expiresIn: "10m",
         }
       )
       mailer.token = token
@@ -43,7 +43,7 @@ const login = async (req, res) => {
         { id: mailer._id, userName: mailer.userName },
         process.env.JWT_SECRET,
         {
-          expiresIn: "2h",
+          expiresIn: "10m",
         }
       )
       mailer.token = token
